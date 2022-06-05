@@ -1,0 +1,13 @@
+$ tmate   #starts tmate and shares on the web and ssh. Use `tmate show-messages` to find those urls:
+$ tmate show-messages  
+  Sat Jun  4 20:02:31 2022 [tmate] Connecting to master.tmate.io...
+  Sat Jun  4 20:02:31 2022 [tmate] Note: clear your terminal before sharing readonly access
+  Sat Jun  4 20:02:31 2022 [tmate] web session read only: https://tmate.io/t/ro-123456CAw4daaPVGfUeTF8Bam
+  Sat Jun  4 20:02:31 2022 [tmate] ssh session read only: ssh ro-123456CAw4daaPVGfUeTF8Bam@nyc1.tmate.io
+  Sat Jun  4 20:02:31 2022 [tmate] web session: https://tmate.io/t/1234567897HYWU8tttHH867CN
+  Sat Jun  4 20:02:31 2022 [tmate] ssh session: ssh 1234567897HYWU8tttHH867CN@nyc1.tmate.io
+  Sat Jun  4 20:02:51 2022 [tmate] tmate can be upgraded to 2.4.0. See https://tmate.io for a list of new features
+
+
+   # I actually modified these keys just in case i forgot to disconnect 
+   # but posted this file to github

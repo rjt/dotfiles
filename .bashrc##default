@@ -125,3 +125,5 @@ if [ -x /usr/bin/mint-fortune ]; then
 fi
 [ -r /home/rjt/.byobu/prompt ] && . /home/rjt/.byobu/prompt   #byobu-prompt#
 # Hi rob 
+alias yadm='/home/rjt/repos/yadm/yadm'
+
