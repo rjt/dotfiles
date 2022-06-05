@@ -1,3 +1,3 @@
 set number
-set indent
+set autoindent
 
