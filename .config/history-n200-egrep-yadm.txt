@@ -1,0 +1,114 @@
+362920  ls repos/yadm/
+362921  ls repos/yadm/ -latr
+362922  cat repos/yadm/.git/config 
+362927  cp git-push-annotated-datetime-tag-hmm.bash ./yadm-push-annotated-datetime-tag-hmm.bash 
+362928  vi yadm-push-annotated-datetime-tag-hmm.bash 
+362930  yadm status
+362932  yadm add ~/.vimrc 
+362933  yadm status
+362935  vi yadm-push-annotated-datetime-tag-hmm.bash 
+362936  yadm add yadm-push-annotated-datetime-tag-hmm.bash 
+362937  yadm status
+362939  ./yadm-push-annotated-datetime-tag-hmm.bash 
+362942  cat ~/notes-yadm.txt 
+362943  less ~/notes-yadm.txt 
+362944  cat ~/notes-yadm.txt | egrep sudo
+362946  ./yadm-push-annotated-datetime-tag-hmm.bash 
+362947  cat gitconfig-from-yadm-config 
+362948  yadm remote add dotfiles git@github.com:rjt/dotfiles.git
+362958  #yadm remote add dotfiles git@github.com:rjt/dotfiles.git
+362959  yadm status
+362960  yadm 
+362961  yadm list
+362962  cat /home/rjt/.local/share/yadm/repo.git/config 
+362963  cat GIT/yadm-push-annotated-datetime-tag-hmm.bash 
+362965  yadm 
+362966  yadm tag 
+362967  ./GIT/yadm-push-annotated-datetime-tag-hmm.bash 
+362968  cat ./GIT/yadm-push-annotated-datetime-tag-hmm.bash 
+362969  cat GIT/gitconfig-from-yadm-config 
+362970  yadm
+362971  ls ~/repos/yadm/ -latr
+362972  cat ~/repos/yadm/.git/config 
+362974  yadm config
+362975  yadm config --global
+362976  yadm config --global --list
+362977  yadm config --global
+362978  yadm config --list
+362979  ls -latr /home/rjt/.config/yadm/
+362989  less .local/share/yadm/repo.git/config 
+362990  cat .local/share/yadm/repo.git/config 
+362991  ln -s .local/share/yadm/repo.git/config -T dotfiles-yadm-config
+362992  ls -latr | tail
+362993  cat dotfiles-yadm-config 
+362994  cp dotfiles-yadm-config ~/bin/GIT/
+362996  ln -s .local/share/yadm/repo.git/config -T ~/bin/dotfiles/dot-local-share-yadm-repo.git-config
+363011  cp --preserve=all ../dotfiles/dot-local-share-yadm-repo.git-config ./
+363013  cat ../dotfiles/dot-local-share-yadm-repo.git-config 
+363014  ln -s ~/.local/share/yadm/repo.git/config -T dot-local-share-yadm-repo.git-config
+363016  cat dot-local-share-yadm-repo.git-config 
+363017  rm ../dotfiles/dot-local-share-yadm-repo.git-config 
+363018  cat dot-local-share-yadm-repo.git-config 
+363019  cp --preserve=all ./dot-local-share-yadm-repo.git-config ../dotfiles/
+363021  file dot-local-share-yadm-repo.git-config 
+363022  file ../dotfiles/dot-local-share-yadm-repo.git-config 
+363024  readlink ./dot-local-share-yadm-repo.git-config 
+363025  readlink ../dotfiles/dot-local-share-yadm-repo.git-config 
+363028  readlink ../dotfiles/dot-local-share-yadm-repo.git-config && echo $?
+363041  ./yadm-push-annotated-datetime-tag-hmm.bash 
+363042  yadm status
+363043  cat ~/notes-yadm.txt 
+363044  cat ~/notes-yadm.txt | less
+363045  . /home/rjt/repos/yadm/completion/bash/yadm 
+363046  which yadm
+363047  head ~/notes-yadm.txt 
+363053  yadm remote -v
+363056  cat dot-local-share-yadm-repo.git-config 
+363057  yadm config edit
+363058  yadm config 
+363059  yadm config list
+363060  yadm 
+363061  yadm config 
+363063  yadm push
+363064  yadm remote add origin git@github.com:rjt/dotfiles
+363065  yadm push origin
+363066  yadm pushd --set-upstream origin master
+363067  yadm push --set-upstream origin master
+363068  cat dot-local-share-yadm-repo.git-config 
+363069  ls -laNF dot-local-share-yadm-repo.git-config 
+363070  #vi dot-local-share-yadm-repo.git-config 
+363071  yadm 
+363073  yadm config
+363074  yadm config --system
+363075  yadm config --list
+363076  yadm config --global --list
+363077  yadm remote help
+363078  yadm remote --verbose 
+363079  yadm remote --verbose remove dotfiles
+363080  yadm remote --verbose 
+363081  yadm status
+363082  yadm push
+363083  yadm push --set-upstream origin master
+363084  yadm config
+363085  yadm remote --verbose 
+363086  cat dot-local-share-yadm-repo.git-config 
+363087  yadm remote --verbose show
+363088  yadm remote --verbose set-url origin git@github.com:rjt/dotfiles.git
+363089  yadm remote --verbose show
+363090  yadm status
+363091  yadm push
+363092  yadm push --set-upstream origin master
+363093  yadm config --global
+363095  yadm config --global push.default simple
+363097  yadm config push.default simlre
+363098  yadm config push.default simple
+363099  yadm config --list
+363100  yadm status
+363102  yadm push
+363103  yadm push --set-upstream origin master
+363104  yadm config
+363105  yadm remote
+363106  yadm remote --verbose
+363107  yadm push --set-upstream origin master
+363115  history | tail -n 200 | egrep -i 'tail|yadm'
+363116  history | tail -n 200 | egrep -i 'tail|yadm' >> history-n200-egrep-yadm.txt
