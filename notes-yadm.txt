@@ -1,5 +1,6 @@
 yadm home page: https://yadm.io/docs
 
+sudo apt install j2cli
 git clone https://github.com/TheLocehiliosan/yadm
 
 sudo cp /home/rjt/repos/yadm/yadm      /usr/local/bin/
@@ -216,4 +217,3 @@ https://github.com/b3nj5m1n/xdg-ninja
  5140  history | tail -n 170 | less
  5141  history | tail -n 200 | less
  5142  history | tail -n 200 >> notes-yadm.txt 
-sudo apt install j2cli
