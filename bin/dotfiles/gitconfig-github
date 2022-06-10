@@ -1,0 +1,6 @@
+[user]
+;On some repos, name must match what is on repo?
+	name = Rob Townley
+	email = rob.townley+PutMachineNameHere@gmail.com
+[gui]
+	recentrepo = /home/momndad/sp/scratchpad

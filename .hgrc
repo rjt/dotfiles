@@ -1,0 +1,10 @@
+[ui]
+username = Rob.Townley ec274-rjt <rob.townley+EC274-rjt@gmail.com>
+verbose = True
+
+[extensions]
+pager = 
+progress =
+color = 
+
+

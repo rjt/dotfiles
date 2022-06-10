@@ -1,0 +1,12 @@
+[user]
+	# https://yadm.io/docs/templates#
+	# JINJA WAY:
+	#MUST HAVE j2cli OR envtpl (lacks maintenance) package installed 
+	#useConfigOnly #IF yadm or git keep asking for email, then comment this line out.
+	email = rob.townley+{{ YADM_HOSTNAME }}@gmail.com
+	name = Rob Townley {{ YADM_HOSTNAME }}
+
+[pull]
+	rebase = false
+[push]
+	default = simple

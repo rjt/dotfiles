@@ -1,0 +1,9 @@
+[user]
+	#useConfigOnly #IF yadm or git keep asking for email, then comment this line out.
+	email = rob.townley+itwooddesk@gmail.com
+	name = Rob Townley itWoodDesk
+
+[pull]
+	rebase = false
+[push]
+	default = simple

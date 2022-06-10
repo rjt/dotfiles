@@ -1,0 +1,219 @@
+yadm home page: https://yadm.io/docs
+
+git clone https://github.com/TheLocehiliosan/yadm
+
+sudo cp /home/rjt/repos/yadm/yadm      /usr/local/bin/
+sudo cp /home/rjt/repos/yadm/bootstrap /usr/local/bin
+sudo cp /home/rjt/repos/yadm/yadm.1    /usr/local/man/man1
+
+bash completions to source in:
+source /home/rjt/repos/yadm/completion/bash/yadm
+
+yadm init
+yadm clone
+yadm pull #NOT listed when yadm is entered.
+yadm push #NOT listed when typing yadm and pressing enter
+
+# A shell script which checks your $HOME for unwanted files and directories.
+https://github.com/b3nj5m1n/xdg-ninja
+ 4943  ls
+ 4944  pwd
+ 4945  ls -laNF Upgrade-Backup/
+ 4946  ls -laNFG bin/
+ 4947  ls -laNFGtr bin/ 
+ 4948  ls -laNFGtr bin/dotfiles/ 
+ 4949  ls 
+ 4950  cat erpoe5-ttyUSB.txt 
+ 4951  ls Documents/
+ 4952  ls Downloads/
+ 4953  echo $PATH
+ 4954  cd ~/bin
+ 4955  ls *ssh*
+ 4956  cat sshopen.sh 
+ 4957  man ssh
+ 4958  tmux list-sessions
+ 4959  tmux attach-session
+ 4960  uptime
+ 4961  w
+ 4962  tmux attach
+ 4963  avahi-browse
+ 4964  uptime
+ 4965  tmux list-sessions
+ 4966  tmux attach-session -t FW
+ 4967  exit
+ 4968  tmatef
+ 4969  tmate -help
+ 4970  tmate -list-sessions
+ 4971  tmate list-sessions
+ 4972  tmux show-messages
+ 4973  tmate show-messages
+ 4974  tmate -help
+ 4975  tmate show-messages
+ 4976  ls -latr .pki/
+ 4977  ls -latr .pki/nssdb/
+ 4978  netstat -tunap
+ 4979  w
+ 4980  tmux list-windows
+ 4981  pushd ~/bin/dotfiles/
+ 4982  ls
+ 4983  ls -laNF
+ 4984  cat hgrc-BreakRoom 
+ 4985  cat gitconfig-github 
+ 4986  cat ~/.gitconfig 
+ 4987  git status
+ 4988  hg status
+ 4989  cat ~/bin/1822erPoE5webpage.bash 
+ 4990  cd ..
+ 4991  cat 1822erPoE5webpage.bash 
+ 4992  ls -latr
+ 4993  cd ~
+ 4994  git status
+ 4995  hg status
+ 4996  ls
+ 4997  https://github.com/TheLocehiliosan/yadm
+ 4998  pwd
+ 4999  mkdir repos
+ 5000  cd repos/
+ 5001  ls
+ 5002  git clone https://github.com/TheLocehiliosan/yadm.git
+ 5003  ls
+ 5004  cd yadm/
+ 5005  ls
+ 5006  pwd
+ 5007  vi Makefile 
+ 5008  pwd
+ 5009  ls
+ 5010  yadm init
+ 5011  ./yadm init
+ 5012  /home/rjt/repos/yadm/yadm --help
+ 5013  yadm clone https://github.com/choman/dotfiles/
+ 5014  #./yadm yadm clone https://github.com/choman/dotfiles/
+ 5015  pwd
+ 5016  ./yadm add ~/.bashrc
+ 5017  yadm commit -m "initial commit"
+ 5018  ./yadm commit -m "initial commit"
+ 5019  alias yadm=$(pwd)/yadm
+ 5020  cd
+ 5021  yadm status
+ 5022  ls
+ 5023  echo "# Hi rob " >> .bashrc 
+ 5024  yadm status
+ 5025  pwd
+ 5026  git status
+ 5027  yadm status
+ 5028  yadm --help
+ 5029  yadm config 
+ 5030  yadm config local.user
+ 5031  ls -latr
+ 5032  yadm config --global
+ 5033  yadm config --global --get-all
+ 5034  less ~/.gitconfig 
+ 5035  yadm config --get user.name
+ 5036  yadm config --global --get user.name
+ 5037  cd .local/share/yadm/
+ 5038  ls
+ 5039  cd repo.git/
+ 5040  ls
+ 5041  cat config
+ 5042  cd
+ 5043  ls
+ 5044  https://yadm.io/
+ 5045  ls
+ 5046  cp 
+ 5047  ls
+ 5048  cp .bashrc .bashrc##default
+ 5049  yadm status
+ 5050  yadm add .bashrc##default 
+ 5051  ls -al .bash*
+ 5052  uname -m 
+ 5053  cp .bashrc##default .bashrc##arm
+ 5054  cp .bashrc##default .bashrc##a.arm
+ 5055  ls -laNF .bash*
+ 5056  cp .bashrc##default .bashrc##${uname -m}
+ 5057  cp .bashrc##default .bashrc##$(uname -m)
+ 5058  ls -laNF .bash*
+ 5059  yadm status
+ 5060  file .bashrc
+ 5061  yadm add .bash*
+ 5062  yadm .bashrc##x86_64 .bashrc##a.x86_64 
+ 5063  mv  .bashrc##x86_64 .bashrc##a.x86_64 
+ 5064  yadm status
+ 5065  yadm .bashrc##x86_64 .bashrc##a.x86_64 
+ 5066  #yadm mv .bashrc##x86_64 .bashrc##a.x86_64 
+ 5067  history
+ 5068  yadm status
+ 5069  yadm rm .bashrc##arm
+ 5070  rm .bashrc##arm 
+ 5071  yadm status
+ 5072  yadm add .bashrc##arm
+ 5073  yadm commit -m "Improper syntx"
+ 5074  yadm status
+ 5075  yadm add .bashrc##x86_64; yadm -m "improper syntax"
+ 5076  yadm add .bashrc##x86_64; yadm commit -m "improper syntax"
+ 5077  yadm status
+ 5078  yadm 
+ 5079  yadm list
+ 5080  cat .bashrc
+ 5081  yadm list
+ 5082  yadm 
+ 5083  cat .local/share/yadm/repo.git/config 
+ 5084  alias
+ 5085  yadm list
+ 5086  cat ~/.bashrc
+ 5087  cat ~/.bashrc | egrep alias
+ 5088  alias yadm
+ 5089  alias yadm >> .bashrc
+ 5090  vi .bashrc
+ 5091  yadm status
+ 5092  vi notes-yadm.txt
+ 5093  history
+ 5094  vi notes-yadm.txt
+ 5095  ls -la
+ 5096  yadm list
+ 5097  yadm
+ 5098  vi notes-yadm.txt 
+ 5099  yadm config 
+ 5100  yadm config local.hostname
+ 5101  yadm config local.user
+ 5102  yadm config yadm.ssh-perms
+ 5103  yadm config local.os
+ 5104  yadm config
+ 5105  man yadm
+ 5106  ls
+ 5107  sudo mkdir /usr/local/man/man1
+ 5108  sudo cp repos/yadm/yadm.1 /usr/local/man/man1/
+ 5109  man yadm
+ 5110  yadm
+ 5111  man yadm
+ 5112  ls -al
+ 5113  help
+ 5114  exit
+ 5115  yadm enter
+ 5116  ls
+ 5117  ls -latr rjt*
+ 5118  stat rjt*
+ 5119  ls rjt*
+ 5120  rm rjt@EC274-rjt\:~\$ 
+ 5121  ls
+ 5122  yadm
+ 5123  printenv
+ 5124  exit
+ 5125  yadm enter
+ 5126  ls -laNF ~/.ssh/
+ 5127  yadm status
+ 5128  yadm add notes-yadm.txt 
+ 5129  yadm
+ 5130  yadm encrypt
+ 5131  ls -latr /home/rjt/.config/yadm/
+ 5132  yadm config 
+ 5133  ssh -l pctechs -L 8443:127.0.0.1:443 1822erpoe5.eceo.us
+ 5134  tmate 
+ 5135  history
+ 5136  ls
+ 5137  history
+ 5138  history | tail -n 100 | less
+ 5139  history | tail -n 150 | less
+ 5140  history | tail -n 170 | less
+ 5141  history | tail -n 200 | less
+ 5142  history | tail -n 200 >> notes-yadm.txt 
+sudo apt install j2cli
