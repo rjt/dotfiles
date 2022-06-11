@@ -4,3 +4,142 @@ systemd-nspawn:
              # debootstrap unstable ~/debian-tree/
              # systemd-nspawn -D ~/debian-tree/
 
+ gdbus introspect --system              --dest org.freedesktop.resolve1              --object-path /org/freedesktop/resolve1 
+node /org/freedesktop/resolve1 {
+  interface org.freedesktop.DBus.Peer {
+    methods:
+      Ping();
+      GetMachineId(out s machine_uuid);
+    signals:
+    properties:
+  };
+  interface org.freedesktop.DBus.Introspectable {
+    methods:
+      Introspect(out s xml_data);
+    signals:
+    properties:
+  };
+  interface org.freedesktop.DBus.Properties {
+    methods:
+      Get(in  s interface_name,
+          in  s property_name,
+          out v value);
+      GetAll(in  s interface_name,
+             out a{sv} props);
+      Set(in  s interface_name,
+          in  s property_name,
+          in  v value);
+    signals:
+      PropertiesChanged(s interface_name,
+                        a{sv} changed_properties,
+                        as invalidated_properties);
+    properties:
+  };
+  interface org.freedesktop.resolve1.Manager {
+    methods:
+      ResolveHostname(in  i ifindex,
+                      in  s name,
+                      in  i family,
+                      in  t flags,
+                      out a(iiay) addresses,
+                      out s canonical,
+                      out t flags);
+      ResolveAddress(in  i ifindex,
+                     in  i family,
+                     in  ay address,
+                     in  t flags,
+                     out a(is) names,
+                     out t flags);
+      ResolveRecord(in  i ifindex,
+                    in  s name,
+                    in  q class,
+                    in  q type,
+                    in  t flags,
+                    out a(iqqay) records,
+                    out t flags);
+      ResolveService(in  i ifindex,
+                     in  s name,
+                     in  s type,
+                     in  s domain,
+                     in  i family,
+                     in  t flags,
+                     out a(qqqsa(iiay)s) srv_data,
+                     out aay txt_data,
+                     out s canonical_name,
+                     out s canonical_type,
+                     out s canonical_domain,
+                     out t flags);
+      GetLink(in  i ifindex,
+              out o path);
+      SetLinkDNS(in  i ifindex,
+                 in  a(iay) addresses);
+      SetLinkDNSEx(in  i ifindex,
+                   in  a(iayqs) addresses);
+      SetLinkDomains(in  i ifindex,
+                     in  a(sb) domains);
+      SetLinkDefaultRoute(in  i ifindex,
+                          in  b enable);
+      SetLinkLLMNR(in  i ifindex,
+                   in  s mode);
+      SetLinkMulticastDNS(in  i ifindex,
+                          in  s mode);
+      SetLinkDNSOverTLS(in  i ifindex,
+                        in  s mode);
+      SetLinkDNSSEC(in  i ifindex,
+                    in  s mode);
+      SetLinkDNSSECNegativeTrustAnchors(in  i ifindex,
+                                        in  as names);
+      RevertLink(in  i ifindex);
+      RegisterService(in  s name,
+                      in  s name_template,
+                      in  s type,
+                      in  q service_port,
+                      in  q service_priority,
+                      in  q service_weight,
+                      in  aa{say} txt_datas,
+                      out o service_path);
+      UnregisterService(in  o service_path);
+      ResetStatistics();
+      FlushCaches();
+      ResetServerFeatures();
+    signals:
+    properties:
+      readonly s LLMNRHostname = 'itwooddesk';
+      @org.freedesktop.DBus.Property.EmitsChangedSignal("false")
+      readonly s LLMNR = 'no';
+      @org.freedesktop.DBus.Property.EmitsChangedSignal("false")
+      readonly s MulticastDNS = 'no';
+      @org.freedesktop.DBus.Property.EmitsChangedSignal("false")
+      readonly s DNSOverTLS = 'no';
+      readonly a(iiay) DNS = [(2, 2, [0xc0, 0xa8, 0x0a, 0x3c]), (4, 2, [0x0a, 0x00, 0x64, 0x3c])];
+      readonly a(iiayqs) DNSEx = [(2, 2, [0xc0, 0xa8, 0x0a, 0x3c], 0, ''), (4, 2, [0x0a, 0x00, 0x64, 0x3c], 0, '')];
+      @org.freedesktop.DBus.Property.EmitsChangedSignal("const")
+      readonly a(iiay) FallbackDNS = [];
+      @org.freedesktop.DBus.Property.EmitsChangedSignal("const")
+      readonly a(iiayqs) FallbackDNSEx = [];
+      readonly (iiay) CurrentDNSServer = (0, 0, []);
+      readonly (iiayqs) CurrentDNSServerEx = (0, 0, [], 0, '');
+      @org.freedesktop.DBus.Property.EmitsChangedSignal("false")
+      readonly a(isb) Domains = [(2, 'corp.eceo.us', false), (4, 'network.corp.eceo.us', false)];
+      @org.freedesktop.DBus.Property.EmitsChangedSignal("false")
+      readonly (tt) TransactionStatistics = (0, 314);
+      @org.freedesktop.DBus.Property.EmitsChangedSignal("false")
+      readonly (ttt) CacheStatistics = (17, 283, 31);
+      @org.freedesktop.DBus.Property.EmitsChangedSignal("false")
+      readonly s DNSSEC = 'no';
+      @org.freedesktop.DBus.Property.EmitsChangedSignal("false")
+      readonly (tttt) DNSSECStatistics = (0, 0, 0, 0);
+      @org.freedesktop.DBus.Property.EmitsChangedSignal("false")
+      readonly b DNSSECSupported = false;
+      @org.freedesktop.DBus.Property.EmitsChangedSignal("false")
+      readonly as DNSSECNegativeTrustAnchors = ['26.172.in-addr.arpa', '30.172.in-addr.arpa', 'home', '19.172.in-addr.arpa', '25.172.in-addr.arpa', '10.in-addr.arpa', 'intranet', 'internal', 'test', '29.172.in-addr.arpa', '16.172.in-addr.arpa', '23.172.in-addr.arpa', 'lan', '27.172.in-addr.arpa', 'd.f.ip6.arpa', 'home.arpa', '24.172.in-addr.arpa', '22.172.in-addr.arpa', 'private', 'corp', '18.172.in-addr.arpa', 'local', '17.172.in-addr.arpa', '28.172.in-addr.arpa', '20.172.in-addr.arpa', '168.192.in-addr.arpa', '21.172.in-addr.arpa', '31.172.in-addr.arpa'];
+      @org.freedesktop.DBus.Property.EmitsChangedSignal("false")
+      readonly s DNSStubListener = 'yes';
+      @org.freedesktop.DBus.Property.EmitsChangedSignal("false")
+      readonly s ResolvConfMode = 'stub';
+  };
+  node dnssd {
+  };
+  node link {
+  };
+};
