@@ -1,0 +1,6 @@
+systemd-nspawn:
+  Example 3. Spawn a shell in a container of a minimal Debian unstable distribution
+  
+             # debootstrap unstable ~/debian-tree/
+             # systemd-nspawn -D ~/debian-tree/
+
