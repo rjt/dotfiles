@@ -3,12 +3,12 @@ yadm home page: https://yadm.io/docs
 sudo apt install j2cli
 git clone https://github.com/TheLocehiliosan/yadm
 
-sudo cp /home/rjt/repos/yadm/yadm      /usr/local/bin/
-sudo cp /home/rjt/repos/yadm/bootstrap /usr/local/bin
-sudo cp /home/rjt/repos/yadm/yadm.1    /usr/local/man/man1
+sudo cp ${HOME}/repos/yadm/yadm      /usr/local/bin/
+sudo cp ${HOME}/repos/yadm/bootstrap /usr/local/bin
+sudo cp ${HOME}/repos/yadm/yadm.1    /usr/local/man/man1
 
 bash completions to source in:
-source /home/rjt/repos/yadm/completion/bash/yadm
+source ${HOME}/repos/yadm/completion/bash/yadm
 
 yadm init
 yadm clone
@@ -86,7 +86,7 @@ https://github.com/b3nj5m1n/xdg-ninja
  5009  ls
  5010  yadm init
  5011  ./yadm init
- 5012  /home/rjt/repos/yadm/yadm --help
+ 5012  ${HOME}/repos/yadm/yadm --help
  5013  yadm clone https://github.com/choman/dotfiles/
  5014  #./yadm yadm clone https://github.com/choman/dotfiles/
  5015  pwd
@@ -205,7 +205,7 @@ https://github.com/b3nj5m1n/xdg-ninja
  5128  yadm add notes-yadm.txt 
  5129  yadm
  5130  yadm encrypt
- 5131  ls -latr /home/rjt/.config/yadm/
+ 5131  ls -latr ${HOME}/.config/yadm/
  5132  yadm config 
  5133  ssh -l pctechs -L 8443:127.0.0.1:443 1822erpoe5.eceo.us
  5134  tmate 
