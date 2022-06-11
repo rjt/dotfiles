@@ -1,10 +1,39 @@
+systemd-networkd, systemd.link, systemd.net-naming-scheme, networkctl, resolvectl, 
+
+Remember the problem i had with the network interface name 
+  being too long to set a vLan?  It was a USB-ethernet
+  interface and would name itself usbMACADDRESS16, the length of the NIC 
+  interface hit a limit and broke vLan attempts.
+
+  cat /usr/lib/systemd/network/73-usb-net-by-mac.link
+  NamePolicy=mac #systemd network naming convention explains where this comes from
+
+https://www.freedesktop.org/software/systemd/man/systemd.link.html
+https://www.freedesktop.org/software/systemd/man/systemd.net-naming-scheme.html
+
+https://systemd.io/PREDICTABLE_INTERFACE_NAMES/
+  /etc/systemd/network/*.link files - man systemd.link
+  Pass a kernel switch.
+
+The above doc denotes three ways to turn off the new network naming scheme, but it 
+  seems the easiest of which is to pass the following kernel vmlinuz switch:
+    net.ifnames=0 
+  should revert back to eth0, eth1, ... ethX.
+  cat /proc/cmdline to make sure this switch made it to the live system.
+
+
 systemd-nspawn:
   Example 3. Spawn a shell in a container of a minimal Debian unstable distribution
   
              # debootstrap unstable ~/debian-tree/
              # systemd-nspawn -D ~/debian-tree/
 
- gdbus introspect --system              --dest org.freedesktop.resolve1              --object-path /org/freedesktop/resolve1 
+
+
+$ gdbus introspect --system   \
+  --dest org.freedesktop.resolve1  \
+  --object-path /org/freedesktop/resolve1 
+
 node /org/freedesktop/resolve1 {
   interface org.freedesktop.DBus.Peer {
     methods:
