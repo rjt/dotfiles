@@ -8,8 +8,8 @@ GIT_COMMITTER_DATE=`date +%Y%m%d%H%M%S`
 strTag="${GIT_COMMITTER_DATE}-${MYHOST}-${USER}"
 echo about to yadm tag -a "${strTag}"
 if [[ 0 -eq $DRYRUN ]]; then 
+  yadm commit;  # Moved commit first because noticed the tag entry on github was behind main.
   yadm tag -a "${strTag}"; 
-  yadm commit;
   echo yadm push --follow-tags only pushes annotated tags.  Requires yadm 1.8.3;
   yadm push --follow-tags;
 else echo DRYRUN, nothing tagged nor commmited nor pushed.
