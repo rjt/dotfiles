@@ -123,7 +123,7 @@ fi
 if [ -x /usr/bin/mint-fortune ]; then
      /usr/bin/mint-fortune
 fi
-[ -r /home/rjt/.byobu/prompt ] && . /home/rjt/.byobu/prompt   #byobu-prompt#
+[ -r ~/.byobu/prompt ] && . ~/.byobu/prompt   #byobu-prompt#
 # Hi rob 
-alias yadm='/home/rjt/repos/yadm/yadm'
+alias yadm='~/repos/yadm/yadm'
 
