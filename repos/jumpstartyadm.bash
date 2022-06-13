@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#Once yadm and j2cli are installed, then .gitconfig is made dynamically.
+#But until then, we need an egg to make a chicken.
 git config --global --add user.name "Rob Townley"
 git config --global --add user.email rob.townley+${HOSTNAME}@gmail.com 
 
