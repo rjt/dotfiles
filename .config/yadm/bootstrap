@@ -1,0 +1,133 @@
+#!/bin/bash
+
+#
+# This script can be "curl-piped" into bash to bootstrap a dotfiles repo when
+# yadm is not locally installed. Read below for instructions.
+#
+# This script is hosted at bootstrap.yadm.io to make it easy to remember/type.
+#
+# DISCLAIMER: In general, I would advise against piping someone's code directly
+#             from the Internet into an interpreter (like Bash). You should
+#             probably review any code like this prior to executing it. I leave
+#             it to you to decide if this is risky behavior or not. The main
+#             reason this script exists is because I find it to be a pragmatic
+#             way to bootstrap my dotfiles, and install yadm in one step
+#             (allowing the yadm project to be a submodule of my dotfiles
+#             repo).
+#
+# Invoke bootstrap with:
+#
+#   curl -L bootstrap.yadm.io | bash
+#
+#     OR
+#
+#   curl -L bootstrap.yadm.io | bash [-s -- REPO_URL [YADM_RELEASE]]
+#
+# Alternatively, source in this file to export a yadm() function which uses
+# yadm remotely until it is locally installed.
+#
+#   source <(curl -L bootstrap.yadm.io)
+#
+
+YADM_REPO="https://github.com/TheLocehiliosan/yadm"
+YADM_RELEASE=${release:-master}
+REPO_URL=""
+
+function _private_yadm() {
+  unset -f yadm
+  if command -v yadm &> /dev/null; then
+    echo "Found yadm installed locally, removing remote yadm() function"
+    unset -f _private_yadm
+    command yadm "$@"
+  else
+    function yadm() { _private_yadm "$@"; }; export -f yadm
+    echo WARNING: Using yadm remotely. You should install yadm locally.
+    curl -fsSL "$YADM_REPO/raw/$YADM_RELEASE/yadm" | bash -s -- "$@"
+  fi
+}
+export -f _private_yadm
+function yadm() { _private_yadm "$@"; }; export -f yadm
+
+# if being sourced, return here, otherwise continue processing
+return 2>/dev/null
+unset -f yadm
+
+function remote_yadm() {
+  curl -fsSL "$YADM_REPO/raw/$YADM_RELEASE/yadm" | bash -s -- "$@"
+}
+
+function ask_about_source() {
+  if ! command -v yadm &> /dev/null; then
+    echo
+    echo "***************************************************"
+    echo "yadm is NOT currently installed."
+    echo "You should install it locally, this link may help:"
+    echo "https://yadm.io/docs/install"
+    echo "***************************************************"
+    echo
+    echo "If installation is not possible right now, you can temporarily \"source\""
+    echo "in a yadm() function which fetches yadm remotely each time it is called."
+    echo
+    echo "    source <(curl -L bootstrap.yadm.io)"
+    echo
+  fi
+}
+
+function build_url() {
+  echo "No repo URL provided."
+  echo
+  echo "Where is your repo?"
+  echo
+  echo "  1. GitHub"
+  echo "  2. Bitbucket"
+  echo "  3. GitLab"
+  echo "  4. Other"
+  echo
+  read -r -p "Where is your repo? (1/2/3/4) ->" choice < /dev/tty
+  case $choice in
+    1)
+      REPO_URL="https://github.com/"
+      ;;
+    2)
+      REPO_URL="https://bitbucket.org/"
+      ;;
+    3)
+      REPO_URL="https://gitlab.com/"
+      ;;
+    *)
+      echo
+      echo Please specify the full URL of your dotfiles repo
+      read -r -p "URL ->" choice < /dev/tty
+      REPO_URL="$choice"
+      return
+      ;;
+  esac
+
+  echo
+  echo "Provide your user and repo separated by '/'"
+  echo "For example: UserName/dotfiles"
+  echo
+  read -r -p "User/Repo ->" choice < /dev/tty
+  [[ "$choice" =~ ^[^[:space:]]+/[^[:space:]]+$ ]] || {
+    echo "Not formatted as USER/REPO"
+    REPO_URL=
+    return
+  }
+  REPO_URL="${REPO_URL}${choice}.git"
+}
+
+function main() {
+
+  [ -n "$1" ] && REPO_URL="$1"
+  [ -n "$2" ] && YADM_RELEASE="$2"
+  [ -z "$REPO_URL" ] && build_url
+  [ -z "$REPO_URL" ] && echo "Unable to determine the repo URL" && exit 1
+
+  echo "Using URL: $REPO_URL"
+  remote_yadm clone "$REPO_URL"
+
+  ask_about_source
+
+}
+
+main "$@"
