@@ -1,4 +1,5 @@
-# .bashrc
+# .bashrc  
+# Fedora-34 version from Qubes-OS.
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
