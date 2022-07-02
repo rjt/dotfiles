@@ -6,7 +6,8 @@
 	#useConfigOnly #IF yadm or git keep asking for email, then comment this line out.
 	email = rob.townley+{{ yadm.hostname }}@gmail.com
 	name = Rob Townley {{ yadm.hostname }}
-
+[yadm]
+	source = {{ yadm.source }}
 [pull]
 	rebase = false
 [push]

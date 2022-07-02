@@ -1,0 +1,14 @@
+[Unit]
+Description=systemctl start home-user-repos. Automount via systemd of mnt FREENASPassThru rsync-from-FreeNas8 rjt bin repos folder.
+
+[Mount]
+What=FreeNasPassThru.corp.eceo.us:/mnt/storage/datasetNFS/dsNFSpctechs/dsNas8/rsync-from-FreeNas8/FreeNas8-POOL0/rjt/bin/repos
+Where=/home/user/repos
+Type=nfs
+Options=auto,user,rw,exec
+DirectoryMode=0766
+
+[Install]
+WantedBy=multi-user.target
+
+#FreeNasPassThru.corp.eceo.us:/mnt/storage/datasetNFS/dsNFSpctechs/dsNas8 /mnt/dsNas8/           nfs noauto,user,rw,exec

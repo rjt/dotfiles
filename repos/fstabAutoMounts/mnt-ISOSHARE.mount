@@ -1,0 +1,16 @@
+[Unit]
+Description=systemctl start mnt-ISOSHARE . Automount via systemd of /mnt/ISOSHARE/ 
+
+[Mount]
+#What=FreeNasPassThru.corp.eceo.us:/mnt/storage/datasetNFS/dsNFSpctechs/dsNas8/rsync-from-FreeNas8/FreeNas8-POOL0/rjt
+What=isoshare.corp.eceo.us:/isoshare 
+Where=/mnt/ISOSHARE
+Type=nfs
+Options=auto,user,rw,exec
+DirectoryMode=0766
+7200
+
+[Install]
+WantedBy=multi-user.target
+
+#isoshare.corp.eceo.us:/isoshare /mnt/ISOSHARE nfs noauto,exec,user

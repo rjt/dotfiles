@@ -1,0 +1,13 @@
+[Unit]
+Description=systemctl start home-user-repos. Automount via systemd of ~/bin8/repos as ~/repos
+
+[Mount]
+What=/home/robert/bin8/repos
+Where=/home/user/repos
+Type=nfs
+Options=auto,user,rw,exec
+DirectoryMode=0766
+7200
+
+[Install]
+WantedBy=multi-user.target

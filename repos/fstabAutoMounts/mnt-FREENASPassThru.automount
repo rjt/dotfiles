@@ -1,0 +1,10 @@
+[Unit]
+Description=Automount via systemd of mnt FREENASPassThru 
+
+[Automount]
+Where=/mnt/FREENASPassThru
+DirectoryMode=0766
+TimeoutIdleSec=7200
+
+[Install]
+WantedBy=multi-user.target

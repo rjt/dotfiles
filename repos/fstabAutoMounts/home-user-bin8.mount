@@ -1,0 +1,15 @@
+[Unit]
+Description=systemctl start home-user-bin8. Automount via systemd of mnt FREENASPassThru FreeNas8 rjt bin folder.
+
+[Mount]
+What=FreeNasPassThru.corp.eceo.us:/mnt/storage/datasetNFS/dsNFSpctechs/dsNas8/rsync-from-FreeNas8/FreeNas8-POOL0/rjt/bin
+Where=/home/user/bin8
+Type=nfs
+Options=auto,user,rw,exec
+DirectoryMode=0766
+7200
+
+[Install]
+WantedBy=multi-user.target
+
+#FreeNasPassThru.corp.eceo.us:/mnt/storage/datasetNFS/dsNFSpctechs/dsNas8 /mnt/dsNas8/           nfs noauto,user,rw,exec

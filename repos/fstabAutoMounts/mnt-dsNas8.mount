@@ -1,0 +1,15 @@
+[Unit]
+Description=systemctl status mnt-dsNas8.automount  Automount via systemd of mnt dsNas8 
+
+[Mount]
+What=FreeNasPassThru.corp.eceo.us:/mnt/storage/datasetNFS/dsNFSpctechs/dsNas8/
+Where=/mnt/dsNas8
+Type=nfs
+Options=auto,user,rw,exec
+DirectoryMode=0766
+7200
+
+[Install]
+WantedBy=multi-user.target
+
+#FreeNasPassThru.corp.eceo.us:/mnt/storage/datasetNFS/dsNFSpctechs/dsNas8 /mnt/dsNas8/           nfs noauto,user,rw,exec

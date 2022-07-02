@@ -1,0 +1,10 @@
+[Unit]
+Description=systemctl status mnt-ISOSHARE.automount Automount mnt ISOSHARE after logon and first use.
+
+[Automount]
+Where=/mnt/ISOSHARE
+DirectoryMode=0766
+TimeoutIdleSec=7200
+
+[Install]
+WantedBy=multi-user.target

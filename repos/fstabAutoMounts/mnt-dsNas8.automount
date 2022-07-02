@@ -1,0 +1,10 @@
+[Unit]
+Description=Automount via systemd of mnt dsNas8
+
+[Automount]
+Where=/mnt/dsNas8
+DirectoryMode=0766
+TimeoutIdleSec=7200
+
+[Install]
+WantedBy=multi-user.target

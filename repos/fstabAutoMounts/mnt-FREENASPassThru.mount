@@ -1,0 +1,17 @@
+[Unit]
+Description=systemctl start $0 Automount via systemd of mnt FREENASPassThru 
+
+[Mount]
+What=FreeNasPassThru.corp.eceo.us:/mnt/storage/datasetNFS/dsNFSpctechs/
+Where=/mnt/FREENASPassThru
+Type=nfs
+Options=auto,user,rw,exec
+DirectoryMode=0766
+7200
+
+[Install]
+WantedBy=multi-user.target
+
+#FreeNasPassThru.corp.eceo.us:/mnt/storage/datasetNFS/dsNFSpctechs/dsNas8 /mnt/dsNas8/           nfs noauto,user,rw,exec
+#FreeNasPassThru.corp.eceo.us:/mnt/storage/datasetNFS/dsNFSpctechs/        /mnt/FREENASPassThru/ nfs noauto,user,rw,exec
+#FreeNasPassThru.corp.eceo.us:/mnt/storage/datasetNFS/dsNFSpctechs/dsNas8  /mnt/dsNas8/           nfs noauto,user,rw,exec
