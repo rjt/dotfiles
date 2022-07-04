@@ -1,0 +1,9 @@
+[Default Applications]
+x-scheme-handler/rdp=org.remmina.Remmina.desktop
+x-scheme-handler/spice=org.remmina.Remmina.desktop
+x-scheme-handler/vnc=org.remmina.Remmina.desktop
+x-scheme-handler/remmina=org.remmina.Remmina.desktop
+application/x-remmina=org.remmina.Remmina.desktop
+
+[Added Associations]
+application/x-ms-dos-executable=gnome-disk-image-mounter.desktop;

@@ -1,7 +1,7 @@
 # .bashrc  
 # Fedora-34 version from Qubes-OS.
 # Modified version of:
-# {{ yadm.source }}
+# yadm.source is: {{ yadm.source }}
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
