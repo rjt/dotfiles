@@ -1,4 +1,9 @@
 # starship command prompt customizer
+export STARSHIP_CONFIG=~/.config/starship/starship.toml # .bashrc.d symbolic link to actual file
+# $ENV:STARSHIP_CONFIG = "$HOME/starship/starship.toml"   #PowerShell $PROFILE
+# os.setenv('STARSHIP_CONFIG', '%USERPROFILE%\starship\starship.toml') #CMD starship.lua
 # curl -sS https://starship.rs/install.sh | sh
+# https://starship.rs/config/
+# Invoke-Expression (&starship init powershell)
 [[ -x "$(which starship)" ]] && eval "$(starship init bash)"
 

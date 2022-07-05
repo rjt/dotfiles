@@ -147,8 +147,9 @@ use_os_path_sep = true
 
 [directory.substitutions]
 
-[docker_context]
-symbol = '🐳 '
+[docker_context] # Whale symbol on starship.rs/config/#docker-context is  🐳 #DOES NOT WORK
+#symbol = '🐳 '
+symbol = " "    # Luckily this whale symbol does :)   :) WHALE!
 style = 'blue bold'
 format = 'via [$symbol$context]($style) '
 only_with_files = true
@@ -328,7 +329,7 @@ truncation_symbol = '…'
 disabled = true
 
 [hostname]
-ssh_only = true
+ssh_only = false # Might cause a problem on console. 
 trim_at = '.'
 format = '[$hostname]($style) in '
 style = 'green dimmed bold'
@@ -510,7 +511,9 @@ version_format = 'v${raw}'
 [perl]
 format = 'via [$symbol($version )]($style)'
 version_format = 'v${raw}'
-symbol = '🐪 '
+#symbol = '🐪 '
+#Neither a camel nor jewelry worked. 
+symbol = 'pl '
 style = '149 bold'
 disabled = false
 detect_extensions = [
@@ -738,7 +741,7 @@ detect_folders = ['.terraform']
 format = 'at [$time]($style) '
 style = 'bold yellow'
 use_12hr = false
-disabled = true
+disabled = false 
 utc_time_offset = 'local'
 time_range = '-'
 

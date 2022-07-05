@@ -11,17 +11,16 @@ devpts                  /dev/pts        devpts  gid=5,mode=620       0 0
 sysfs                   /sys            sysfs   defaults             0 0
 proc                    /proc           proc    defaults             0 0
 /dev/xvdi               /mnt/removable  auto    noauto,user,rw       0 0
+####ECEO #############
 #/proc/xen made the root fs ReadOnly!  DO NOT UNCOMMENT!
 # mount -o remount,rw /dev/xvda3 /
-# uncomment /proc/xen line again!
 #xen                     /proc/xen       xenfs   defaults        0 0
-####ECEO #############
 isoshare.corp.eceo.us:/isoshare /mnt/ISOSHARE nfs noauto,exec,user
 #FreeNas8.corp.eceo.us:/mnt/FreeNas8-POOL0/rjt/bin /mnt/FREENAS8NFS/ nfs rw,exec
 #//eceofs01.corp.eceo.us/pDrive /mnt/p --verbose  -o username=robert,noposix,ip=192.168.10.37,vers=3,sec=ntlmsspi
 #//eceofs01.corp.eceo.us/pDrive /mnt/p1001 cifs (rw,relatime,vers=3,sec=ntlmsspi,cache=strict,username=robert,uid=1001,forceuid,gid=1001,forcegid,addr=192.168.10.37,file_mode=0755,dir_mode=0755,soft,nounix,mapposix,rsize=1048576,wsize=1048576,echo_interval=60,actimeo=1)
 #//eceofs01.corp.eceo.us/pDrive /mnt/p1001 cifs (rw,vers=3,sec=ntlmsspi,cache=strict,username=robert,uid=1001,forceuid,gid=1001,forcegid,addr=192.168.10.37,file_mode=0755,dir_mode=0755,soft,nounix,mapposix,rsize=1048576,wsize=1048576,echo_interval=60,noserverino)
 
-FreeNasPassThru.corp.eceo.us:/mnt/storage/datasetNFS/dsNFSpctechs/        /mnt/FREENASPassThru/ nfs noauto,user,rw,exec
+FreeNasPassThru.corp.eceo.us:/mnt/storage/datasetNFS/dsNFSpctechs/        /mnt/FREENASPassThru/  nfs noauto,user,rw,exec
 FreeNasPassThru.corp.eceo.us:/mnt/storage/datasetNFS/dsNFSpctechs/dsNas8  /mnt/dsNas8/           nfs noauto,user,rw,exec
 
