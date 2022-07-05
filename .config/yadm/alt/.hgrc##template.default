@@ -7,14 +7,14 @@ username = Rob.Townley {{yadm.hostname}} <rob.townley+{{yadm.hostname}}@gmail.co
 verbose = True
 
 [extensions]
-	pager = 
-	progress =
-	color = 
+pager = 
+progress =
+color = 
 
 [yadm]
-	# BUILT FROM yadm SOURCE TEMPLATE:
-	# NOT JINJA BUT YADM WAY
-	source = {{ yadm.source }}
-        url = https://yadm.io/docs/templates
-	hostname = {{ yadm.hostname }}
-	#useConfigOnly #IF yadm or git keep asking for email, then comment this line out.
+# BUILT FROM yadm SOURCE TEMPLATE:
+# NOT JINJA BUT YADM WAY
+source = {{ yadm.source }}
+url = https://yadm.io/docs/templates
+hostname = {{ yadm.hostname }}
+#useConfigOnly #IF yadm or git keep asking for email, then comment this line out.
