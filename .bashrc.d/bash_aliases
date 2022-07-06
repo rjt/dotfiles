@@ -11,3 +11,4 @@ elif [[ /usr/local/bin/yadm -ot "${HOME}/repos/yadm/yadm" ]]; then
 fi;
 
 ### if [[ ! -x /usr/local/bin/yadm ]]; then echo "using usr local bin yadm "; else echo  "home yadm yadm "; fi;
+yadm log --pretty=short
