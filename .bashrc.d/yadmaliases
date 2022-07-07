@@ -1,5 +1,6 @@
 alias yadmlistbranches='yadm branch -a'
-alias yadmdiffremote='yadm diff origin remotes/origin/main'
+alias yadmdiffremoteFAILS='yadm diff origin remotes/origin/main'
+alias yadmdiffremote='yadm fetch; yadm diff main origin/main'
 alias yadmdiffremotebranch='yadm diff origin remotes/origin/master'
 alias yadmdiffsummary='yadm diff --summary'
 alias yadmlogpretty='yadm log --pretty=short'
