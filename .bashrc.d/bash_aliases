@@ -9,6 +9,7 @@ elif [[ /usr/local/bin/yadm -ot "${HOME}/repos/yadm/yadm" ]]; then
   echo "Using outdated yadm in /usr/local/bin/yadm";
   ls -laNF /usr/local/bin/yadm  ${HOME}/repos/yadm/yadm 
 fi;
+alias myshortkey='gpg2 --verbose --fingerprint --keyid-format short  robert@ECEO.us | egrep -i "(pub[ \t]*rsa4096/)" | cut -d "/" -f 2 | cut -d " " -f1  '
 
 ### if [[ ! -x /usr/local/bin/yadm ]]; then echo "using usr local bin yadm "; else echo  "home yadm yadm "; fi;
 ### yadm log --pretty=short

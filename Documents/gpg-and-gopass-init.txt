@@ -1,0 +1,20 @@
+gpg --fingerprint
+last 8 bytes / 64bits of SHA1 fingerprint.  
+
+robert@itwooddesk:~$ gopass init 3FA1 C9C9
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint: 
+hint: 	git config --global init.defaultBranch <name>
+hint: 
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint: 
+hint: 	git branch -m <name>
+Initialized empty Git repository in /home/robert/.password-store/.git/
+[master (root-commit) 848b037] initial commit
+ 1 file changed, 2 insertions(+)
+ create mode 100644 .gpg-id
+Successfully created Password Store at "/home/robert/.password-store".
+
