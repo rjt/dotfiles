@@ -1,0 +1,6 @@
+# https://starship.rs/advanced-config/#change-window-title
+function set_win_title(){
+  echo -ne "\033]0; $(basename "$PWD") ${USERNAME} \007"
+}
+starship_precmd_user_func="set_win_title"
+
