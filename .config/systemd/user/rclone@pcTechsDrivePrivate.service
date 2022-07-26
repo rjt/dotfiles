@@ -1,3 +1,7 @@
+# wget https://gist.githubusercontent.com/kabili207/2cd2d637e5c7617411a666d8d7e97101/raw/d67e43d770a72cf151f19ce2e8201c66a13cbb33/rclone@.service
+# https://gist.github.com/kabili207/2cd2d637e5c7617411a666d8d7e97101
+# web page has a great deal of discussion in the comments for different systems.
+#
 # User service for Rclone mounting
 #
 # Place in ~/.config/systemd/user/
@@ -13,7 +17,7 @@ Description=rclone: Remote FUSE filesystem for cloud storage config %i
 Documentation=man:rclone(1)
 After=network-online.target
 Wants=network-online.target 
-AssertPathIsDirectory=%h/mnt/%i
+AssertPathIsDirectory=%h/gDrive/%i
 
 [Service]
 Type=notify
@@ -25,9 +29,9 @@ ExecStart= \
     --log-level INFO \
     --log-file /tmp/rclone-%i.log \
     --umask 022 \
-    --allow-other \
-    %i: %h/mnt/%i
-ExecStop=/bin/fusermount -u %h/mnt/%i
+    %i: %h/gDrive/%i
+#    --allow-other \ # Requires /etc/fuse.conf user_allow_other to be uncommented and enabled.
+ExecStop=/bin/fusermount -u %h/gDrive/%i
 
 [Install]
 WantedBy=default.target
