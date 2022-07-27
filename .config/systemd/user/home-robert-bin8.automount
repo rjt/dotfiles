@@ -1,8 +1,8 @@
 [Unit]
-Description=Automount via systemd of mnt dsNas8
+Description=Automount via systemd of FREENASPassThru bin8
 
 [Automount]
-Where=/mnt/dsNas8
+Where=/home/robert/bin8
 DirectoryMode=0766
 TimeoutIdleSec=7200
 

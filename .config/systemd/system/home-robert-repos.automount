@@ -2,7 +2,7 @@
 Description=Automount via systemd of ~/repos/ 
 
 [Automount]
-Where=/home/user/repos
+Where=/home/robert/repos
 DirectoryMode=0766
 TimeoutIdleSec=7200
 
