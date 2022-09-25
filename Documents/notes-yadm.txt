@@ -17,6 +17,23 @@ yadm push #NOT listed when typing yadm and pressing enter
 
 # A shell script which checks your $HOME for unwanted files and directories.
 https://github.com/b3nj5m1n/xdg-ninja
+xdg-ninja Dependencies:
+    -glow https://repology.org/project/glow/packages
+        -- crossplatform code to markdown html that xdg-ninja maintainer says
+           is better than bat, pygmentize, and highlight.
+        -- Win https://community.chocolatey.org/packages/glow
+        -- BSD sysutils/glow https://www.freshports.org/sysutils/glow
+        -- MacPorts
+        -- not in deb or flatpak atm.
+    -glow > [ bat | pygmentize | hightlight ]
+        -- bat is a cat clone with git integration.
+        -- bat is in Win via chocolatey, Raspbian, Ubuntu 20.04, 2204, 2210  
+             -- choco install "less","bat"
+    -bash | dash | zsh
+    -jq to parse json files
+
+
+# history from about time of install and setup
  4943  ls
  4944  pwd
  4945  ls -laNF Upgrade-Backup/
