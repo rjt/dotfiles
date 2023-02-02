@@ -9,3 +9,5 @@ RV=$(cat /etc/fuse.conf | egrep -v '^#|^$' | egrep 'user_allow_other' )
 [[ -n "${RV}" && 'user_allow_other' = "${RV}" ]]; echo "GOOD.  sshfs is enabled for root access of a users sshfs mount.  user_allow_other in /etc/fuse.conf on client executing sshfs."
 [[ -z "${RV}" || 'user_allow_other' != "${RV}" ]]; echo "uncomment \"user_allow_other\" in /etc/fuse.conf on client executing sshfs."
 
+set +x
+

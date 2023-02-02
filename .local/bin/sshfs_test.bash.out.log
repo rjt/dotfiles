@@ -1,0 +1,17 @@
+#!/usr/bin/env -S bash --norc --noprofile --verbose -x 
+
+SSHFS_PKG_INSTALLED=$(dpkg-query --show sshfs | gawk '{ print $1}' )
+++ dpkg-query --show sshfs
+++ gawk '{ print $1}'
++ SSHFS_PKG_INSTALLED=sshfs
+echo "SSHFS INSTALLED: \"${SSHFS_PKG_INSTALLED}\""
++ echo 'SSHFS INSTALLED: "sshfs"'
+SSHFS INSTALLED: "sshfs"
+[[ -n "${SSHFS_PKG_INSTALLED}" && 'sshfs' !=  "${SSHFS_PKG_INSTALLED}" ]]; echo -e "apt update; apt install sshfs\n exiting\n"; exit -1;
++ [[ -n sshfs ]]
++ [[ sshfs != \s\s\h\f\s ]]
++ echo -e 'apt update; apt install sshfs\n exiting\n'
+apt update; apt install sshfs
+ exiting
+
++ exit -1

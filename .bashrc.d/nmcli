@@ -1,0 +1,2 @@
+alias nmcli='nmcli --colors yes '
+# Put in the nmcli to remove a gateway or use a default route.  alias nmcli
