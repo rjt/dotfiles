@@ -1,0 +1,54 @@
+Most CentOS6 machines would not boot after the first
+intel MeltDown / Spectre patches.  
+Every Linux machine was recoverable, but most Windows machines
+never booted again, definitely not reliably.  
+
+In CentOS, ~the menu to choose a previous kernel would not even 
+appear.  
+
+Eventually figured out booting from a known good CD or ISO
+and choosing repair mode:
+
+  # mkdir /mnt/brokenbootpartition
+  # mount /dev/xvda /mnt/brokenbootpartition
+  # chroot /mnt/brokenbootpartition
+  # ls -latr /boot/
+  # rpm -qf /boot/vmlinuz latest or in some cases last two. 
+  # yum erase $(rpm -qf /boot/vmlinuz latest version)
+  #
+  # echo yum update might work now if newer patches were out 
+  # echo but generally had to use a dracut command 
+  # echo to rebuild initrd and stuff.
+  # ? dracut command to rebuild the last known good kernel initrd ?
+  # echo WHAT WAS THAT dracut command?
+  # dracut /boot/initrd-${LAST KNOWN GOOD KERNEL VERSION} or something
+  # echo Usually a reboot at this point worked.
+
+
+The gitorious git server recovered and booted successfully.
+But for some reason would have problems.  
+  Neglect?   
+  selinux?
+  Active Directory Joined?
+
+Grub Repair:
+  # echo boot into rescue mode againn using CentOS-netinstall
+  #
+  # mkdir /mnt/LetsFixGrub
+  # mount /dev/xvda1 /mnt/LetsFixGrub
+  # ls -laNF /mnt/LetsFixGrub/home/   #Sanity Check!
+  # chroot /mnt/LetsFixGrub
+  # ls -laNF /  # Verify fs is readable but is the correct 
+  #    filesystem.  
+  # grub        # grub is a command to enter grub shell>
+  grub> device (hd0) /dev/xvda      #NOTE THIS IS THE ENTIRE DRIVE
+  grub> root (hd0,0)                
+  grub> setup (hd0)
+  grub> quit
+  # sync 
+  # exit
+  # exit   # should reboot
+  # reboot # Boots OS normally or at least gets you back to the grub menu.
+
+  # SCREENSHOTS ARE 
+

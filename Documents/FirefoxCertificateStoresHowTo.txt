@@ -1,0 +1,50 @@
+/* Allows Firefox reading Windows certificates */    
+/* This is the old way. */ 
+/* Put into TrustSystemCertificates.json  */
+pref("security.enterprise_roots.enabled", true);
+
+
+Newer way is policy*.json under ./distribution/ folder.  
+./firefox
+./distribution/policies.json
+policies.json
+  {
+    "policies": {
+      "Certificates": {
+        "ImportEnterpriseRoots": true | false
+      }
+    }
+  }
+
+
+But there must be a newer way for Flatpak installs of Firefox!
+
+
+configure firefox to use system certificate trust - Google Search
+https://www.google.com/search?client=firefox-b-1-d&q=configure+firefox+to+use+system+certificate+trust
+
+Setting Up Certificate Authorities (CAs) in Firefox | Firefox for Enterprise Help
+https://support.mozilla.org/en-US/kb/setting-certificate-authorities-firefox
+
+Customizing Firefox Using Group Policy (Windows) | Firefox for Enterprise Help
+https://support.mozilla.org/en-US/kb/customizing-firefox-using-group-policy-windows
+
+Customizing Firefox Using policies.json | Firefox for Enterprise Help
+https://support.mozilla.org/en-US/kb/customizing-firefox-using-policiesjson
+
+policy-templates/README.md at master · mozilla/policy-templates · GitHub
+https://github.com/mozilla/policy-templates/blob/master/README.md
+
+Releases · mozilla/policy-templates
+https://github.com/mozilla/policy-templates/releases
+
+windows - How to make Firefox trust system CA certificates? - Server Fault
+https://serverfault.com/questions/722563/how-to-make-firefox-trust-system-ca-certificates
+
+how to add enterprise trust to all flatpak firefox? - Google Search
+https://www.google.com/search?client=firefox-b-1-d&q=how+to+add+enterprise+trust+to+all+flatpak+firefox%3F
+
+1766340 – can't access host trusted certificates from fedora firefox flatpak
+https://bugzilla.redhat.com/show_bug.cgi?id=1766340
+
+

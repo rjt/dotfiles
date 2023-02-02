@@ -1,14 +1,42 @@
-[user]
-        # https://yadm.io/docs/templates#
-	# NOT JINJA BUT YADM WAY
-	# {{ yadm.source }}
-	#yadm handles yadm.hostname by default.
-	#useConfigOnly #IF yadm or git keep asking for email, then comment this line out.
-	email = rob.townley+{{ yadm.hostname }}@gmail.com
-	name = Rob Townley {{ yadm.hostname }}
-[yadm]
-	source = {{ yadm.source }}
+[yadm]   
+  source = {{ yadm.source }} 
 [pull]
-	rebase = false
+  rebase = false
 [push]
-	default = simple
+  default = simple
+
+#signingkey=DEADBEEF
+
+{% if yadm.class=="MyGitConfigurator" %}
+[includeIf "gitdir:~/repos/odin/"]   # MUST HAVE TRAILING SLASH.         
+        path = ~/.gitconfig-odin     # ERRORS OUT
+[includeIf "gitdir:~/repos/platform1/"]  # MUST HAVE TRAILING SLASH.         
+        path = ~/.gitconfig-platform1
+[include]
+        path = ~/.gitconfig.local
+{% endif %}
+
+[user]
+# https://yadm.io/docs/templates#
+# NOT JINJA BUT YADM WAY
+# {{ yadm.source }}
+#yadm handles yadm.hostname by default.
+#useConfigOnly #IF yadm or git keep asking for email, then comment this line out.
+email = rob.townley+{{ yadm.hostname }}@gmail.com
+name = Rob Townley {{ yadm.hostname }}
+# fatal: bad config line 15 in file /home/robert/.gitconfig
+# WHY DOES git config CHOKE ON THE THE NEXT LINE AND yadm DELETE THIS LINE?
+# WHY DOES git config CHOKE ON THE THE NEXT LINE AND yadm DELETE THIS LINE?
+# SomeBadsigningkey  =   C55EB61DDEADBEEF  #REMOVED
+#CAN THIS GIT SIGNING KEY INDEX BE SHORT 8 Bytes?
+#yadm sets an alias that returns myShortGPG key.
+#Have it set a variable that could be retrieved here as a yadm moustache
+#alias myshortkey
+#{{ env.VAR }}
+#Set this variable as gpg --list-secret-keys --keyid-format=short
+signingkey = {{ env.GPG_SHORT_PRIVATE_KEY }}
+# name = Rob Townley
+# email = rjt@eceo.us
+# email = {{ env.EMAIL }}
+[commit]
+gpgsign = true

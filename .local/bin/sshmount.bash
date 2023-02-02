@@ -7,7 +7,8 @@ if [[ ! -d $SSHFSMNTPNT ]]; then mkdir $SSHFSMNTPNT; fi;
 #sshfs rjt@certauth.network.corp.eceo.us:/home/rjt/CertTemp ~/CERTAUTHMNT fuse.sshfs (rw,nosuid,nodev,relatime,user_id=1000,group_id=1000)
 #sshfs rjt@certauth.network.corp.eceo.us:/home/rjt/CertTemp ~/CERTAUTHMNT (rw,nosuid,nodev,relatime,user_id=1000,group_id=1000)
 #sshfs rjt@certauth.network.corp.eceo.us:/home/rjt/CertTemp ~/CERTAUTHMNT -o rw,nosuid,nodev,uid=1001,gid=1001
-sshfs rjt@certauth.network.corp.eceo.us:/home/rjt/CertTemp ${SSHFSMNTPNT} -o rw,nosuid,nodev,uid=1000,gid=1001
+#sshfs rjt@certauth.network.corp.eceo.us:/home/rjt/CertTemp ${SSHFSMNTPNT} -o rw,nosuid,nodev,uid=1000,gid=1001
+sshfs rjt@certauth.corp.eceo.us:/home/rjt/CertTemp ${SSHFSMNTPNT} -o rw,nosuid,nodev,uid=1000,gid=1001
 if [[ -x ${SSHFSMNTPNT} ]]; then 
  	if [[ ! -O ${SSHFSMNTPNT}/ECEO_ROOT_CA_20200426.cacert.pub.pem ]]; then 
 	  echo "With NFS, different UID:GID breaks things.  ";

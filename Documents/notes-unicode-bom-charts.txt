@@ -1,0 +1,56 @@
+https://www.unicode.org/faq/utf_bom.html
+Q: Is a BOM used only in 16-bit Unicode text?
+
+BOM=ByteOrderMark
+
+A BOM can be used as a signature no matter how the Unicode text is transformed: UTF-16, UTF-8, or UTF-32. The exact bytes comprising the BOM will be whatever the Unicode character U+FEFF is converted into by that transformation format. In that form, the BOM serves to indicate both that it is a Unicode file, and which of the formats it is in. 
+
+Examples:
+   BOM Bytes 	  Encoding Form
+   00 00 FE FF 	UTF-32, big-endian
+   FF FE 00 00 	UTF-32, little-endian
+   FE FF 	      UTF-16, big-endian
+   FF FE 	      UTF-16, little-endian
+   EF BB BF 	  UTF-8
+
+Unfortunately, bash and other interpreters may/will crash when the UTF-8 file has a ByteOrderMark.  It expects
+   #!/usr/bin/env
+
+Even though UTF-8 does not need a BOM, it would be nice if the standard was to use a BOM because it not only identifies the file as unicode, but what type of unicode.  Linux could standardize on utf8, whereas MS Windows had many different character encoding solutions.
+
+https://www.unicode.org/glossary/
+
+UTF-8 is most common on the web. UTF-16 is used by Java and Windows (.Net). UTF-8 and UTF-32 are used by Linux and various Unix systems. The conversions between all of them are algorithmically based, fast and lossless. This makes it easy to support data input or output in multiple formats, while using a particular UTF for internal storage or processing.  [AF]
+
+
+Q: What are some of the differences between the UTFs?
+
+The following table summarizes some of the properties of each of the UTFs. 
+
+Name 	                      UTF-8 	UTF-16 	UTF-16BE 	  UTF-16LE 	    UTF-32 	  UTF-32BE 	  UTF-32LE
+Smallest code point 	       0000 	0000 	  0000 	      0000 	        0000 	    0000 	      0000
+Largest code point 	        10FFFF 	10FFFF 	10FFFF 	    10FFFF 	      10FFFF 	  10FFFF 	    10FFFF
+Code unit size 	            8 bits 	16 bits 16 bits 	  16 bits 	    32 bits   32 bits 	  32 bits
+Byte order 	                 N/A  	<BOM> 	big-endian  little-endian 	<BOM> 	big-endian 	little-endian
+Fewest bytes per character 	  1 	    2 	    2 	       2 	           4 	       4 	         4
+Most bytes per character 	    4 	    4 	    4 	       4 	           4 	       4 	         4
+
+In the table <BOM> indicates that the byte order is determined by a byte order mark, if present at the beginning of the data stream, otherwise it is big-endian. [AF]
+
+Note the "Largest code point" row above, 32bits is enough to represent over 4 billion characters, but it is limited to 1,114,111 or  0x10FFFF.
+❯ echo "1*16^5+0*16^4+15*16^3+15*16^2+15*16^1+15*16^0" | bc --mathlib
+1114111
+
+Q: Will UTF-16 ever be extended to more than a million characters?
+
+No. Both Unicode and ISO 10646 have policies in place that formally limit future code assignment to the integer range that can be expressed with current UTF-16 (0 to 1,114,111). Even if other encoding forms (i.e. other UTFs) can represent larger integers, these policies mean that all encoding forms will always represent the same set of characters. Over a million possible codes is far more than enough for the goal of Unicode of encoding characters, not glyphs. Unicode is not designed to encode arbitrary data. If you wanted, for example, to give each “instance of a character on paper throughout history” its own code, you might need trillions or quadrillions of such codes; noble as this effort might be, you would not use Unicode for such an encoding. [AF]
+
+
+&NBSP; ZWNBSP ZeroWidthNonBreakingSpace character.  
+Q: What should I do with U+FEFF in the middle of a file?
+
+In the absence of a protocol supporting its use as a BOM and when not at the beginning of a text stream, U+FEFF should normally not occur. For backwards compatibility it should be treated as ZERO WIDTH NON-BREAKING SPACE (ZWNBSP), and is then part of the content of the file or string. The use of U+2060 WORD JOINER is strongly preferred over ZWNBSP for expressing word joining semantics since it cannot be confused with a BOM. When designing a markup language or data protocol, the use of U+FEFF can be restricted to that of Byte Order Mark. In that case, any U+FEFF occurring in the middle of a file can be treated as an unsupported character. [AF]
+
+Q: I am using a protocol that has BOM at the start of text. How do I represent an initial ZWNBSP?
+
+Use U+2060 WORD JOINER instead. 
